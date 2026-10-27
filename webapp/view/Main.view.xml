@@ -44,7 +44,7 @@
                     <Text text="ID"/>
                 </Column>
                 <Column>
-                    <Text text="Name"/>
+                    <Text text="Title"/>
                 </Column>
                 <Column minScreenWidth="Tablet" demandPopin="true">
                     <Text text="Author"/>
@@ -58,12 +58,16 @@
                 <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
                     <Text text="Available Quantity"/>
                 </Column>
+                <Column width="8rem" hAlign="Center">
+                    <Text text="Actions"/>
+                </Column>
             </columns>
             <items>
                 <ColumnListItem vAlign="Middle">
                     <cells>
                         <Text text="{ID}"/>
-                        <Text text="{Name}"/>
+                        <Text text="{Name}" visible="{= !${editMode}}"/>
+                        <Input value="{Name}" visible="{editMode}"/>
                         <Text text="{Author}"/>
                         <Text text="{Genre}"/>
                         <Text text="{
@@ -74,6 +78,16 @@
                             }
                         }"/>
                         <ObjectNumber number="{AvailableQuantity}" emphasized="false"/>
+                        <HBox justifyContent="Center">
+                            <Button text="Edit Title"
+                                type="Transparent"
+                                visible="{= !${editMode}}"
+                                press=".onEditTitle"/>
+                            <Button text="Save"
+                                type="Emphasized"
+                                visible="{editMode}"
+                                press=".onSaveTitle"/>
+                        </HBox>
                     </cells>
                 </ColumnListItem>
             </items>

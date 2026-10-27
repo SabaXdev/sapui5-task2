@@ -10,8 +10,15 @@ sap.ui.define([
     return BaseController.extend("axalimoduli.controller.Main", {
         onInit() {
             const oBooksModel = models.createBooksModel();
+            this._initEditMode(oBooksModel);
             this.getView().setModel(oBooksModel);
             this._initGenreFilterModel(oBooksModel);
+        },
+
+        _initEditMode(oBooksModel) {
+            oBooksModel.getProperty("/books").forEach((oBook) => {
+                oBook.editMode = false;
+            });
         },
 
         _initGenreFilterModel(oBooksModel) {
@@ -45,9 +52,20 @@ sap.ui.define([
                 Author: "",
                 Genre: "",
                 ReleaseDate: null,
-                AvailableQuantity: 0
+                AvailableQuantity: 0,
+                editMode: false
             });
             oModel.setProperty("/books", aBooks);
+        },
+
+        onEditTitle(oEvent) {
+            const oContext = oEvent.getSource().getBindingContext();
+            oContext.getModel().setProperty(`${oContext.getPath()}/editMode`, true);
+        },
+
+        onSaveTitle(oEvent) {
+            const oContext = oEvent.getSource().getBindingContext();
+            oContext.getModel().setProperty(`${oContext.getPath()}/editMode`, false);
         },
 
         onDeleteRecord() {
