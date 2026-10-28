@@ -10,14 +10,14 @@
             items="{/books}">
             <headerToolbar>
                 <OverflowToolbar>
-                    <Title text="Books" level="H2"/>
+                    <Title text="{i18n>booksTableTitle}" level="H2"/>
                 </OverflowToolbar>
             </headerToolbar>
             <toolbar>
                 <OverflowToolbar>
                     <Input id="titleFilter"
                         width="12rem"
-                        placeholder="Filter by title"/>
+                        placeholder="{i18n>filterByTitlePlaceholder}"/>
                     <Select id="genreFilter"
                         width="12rem"
                         forceSelection="false"
@@ -25,38 +25,38 @@
                         <core:Item key="{filter>}" text="{filter>}"/>
                     </Select>
                     <Button id="filterButton"
-                        text="Filter"
+                        text="{i18n>filterButton}"
                         type="Emphasized"
                         press=".onFilterBooks"/>
                     <ToolbarSeparator/>
                     <Button id="addRecordButton"
-                        text="Add Record"
+                        text="{i18n>addRecordButton}"
                         type="Accept"
                         press=".onAddRecord"/>
                     <Button id="deleteRecordButton"
-                        text="Delete Record"
+                        text="{i18n>deleteRecordButton}"
                         type="Reject"
                         press=".onDeleteRecord"/>
                 </OverflowToolbar>
             </toolbar>
             <columns>
                 <Column width="6rem">
-                    <Text text="ID"/>
+                    <Text text="{i18n>tableColumnId}"/>
                 </Column>
                 <Column>
-                    <Text text="Name"/>
+                    <Text text="{i18n>tableColumnName}"/>
                 </Column>
                 <Column minScreenWidth="Tablet" demandPopin="true">
-                    <Text text="Author"/>
+                    <Text text="{i18n>tableColumnAuthor}"/>
                 </Column>
                 <Column minScreenWidth="Tablet" demandPopin="true">
-                    <Text text="Genre"/>
+                    <Text text="{i18n>tableColumnGenre}"/>
                 </Column>
                 <Column minScreenWidth="Desktop" demandPopin="true">
-                    <Text text="Release Date"/>
+                    <Text text="{i18n>tableColumnReleaseDate}"/>
                 </Column>
                 <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
-                    <Text text="Available Quantity"/>
+                    <Text text="{i18n>tableColumnAvailableQuantity}"/>
                 </Column>
             </columns>
             <items>
@@ -67,11 +67,11 @@
                         <Text text="{Author}"/>
                         <Text text="{Genre}"/>
                         <Text text="{
-                            path: 'ReleaseDate',
-                            type: 'sap.ui.model.type.Date',
-                            formatOptions: {
-                                style: 'medium'
-                            }
+                            parts: [
+                                {path: 'ReleaseDate'},
+                                {path: 'i18n>publishedYear'}
+                            ],
+                            formatter: '.formatter.formatPublishedYear'
                         }"/>
                         <ObjectNumber number="{AvailableQuantity}" emphasized="false"/>
                     </cells>
