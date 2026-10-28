@@ -3,80 +3,233 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <Table id="booksTable"
-            mode="MultiSelect"
-            inset="false"
-            width="auto"
-            items="{/books}">
-            <headerToolbar>
-                <OverflowToolbar>
-                    <Title text="Books" level="H2"/>
-                </OverflowToolbar>
-            </headerToolbar>
-            <toolbar>
-                <OverflowToolbar>
-                    <Input id="titleFilter"
-                        width="12rem"
-                        placeholder="Filter by title"/>
-                    <Select id="genreFilter"
-                        width="12rem"
-                        forceSelection="false"
-                        items="{filter>/genres}">
-                        <core:Item key="{filter>}" text="{filter>}"/>
-                    </Select>
-                    <Button id="filterButton"
-                        text="Filter"
-                        type="Emphasized"
-                        press=".onFilterBooks"/>
-                    <ToolbarSeparator/>
-                    <Button id="addRecordButton"
-                        text="Add Record"
-                        type="Accept"
-                        press=".onAddRecord"/>
-                    <Button id="deleteRecordButton"
-                        text="Delete Record"
-                        type="Reject"
-                        press=".onDeleteRecord"/>
-                </OverflowToolbar>
-            </toolbar>
-            <columns>
-                <Column width="6rem">
-                    <Text text="ID"/>
-                </Column>
-                <Column>
-                    <Text text="Name"/>
-                </Column>
-                <Column minScreenWidth="Tablet" demandPopin="true">
-                    <Text text="Author"/>
-                </Column>
-                <Column minScreenWidth="Tablet" demandPopin="true">
-                    <Text text="Genre"/>
-                </Column>
-                <Column minScreenWidth="Desktop" demandPopin="true">
-                    <Text text="Release Date"/>
-                </Column>
-                <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
-                    <Text text="Available Quantity"/>
-                </Column>
-            </columns>
-            <items>
-                <ColumnListItem vAlign="Middle">
-                    <cells>
-                        <Text text="{ID}"/>
-                        <Text text="{Name}"/>
-                        <Text text="{Author}"/>
-                        <Text text="{Genre}"/>
-                        <Text text="{
-                            path: 'ReleaseDate',
-                            type: 'sap.ui.model.type.Date',
-                            formatOptions: {
-                                style: 'medium'
-                            }
-                        }"/>
-                        <ObjectNumber number="{AvailableQuantity}" emphasized="false"/>
-                    </cells>
-                </ColumnListItem>
-            </items>
-        </Table>
+        <content>
+            <IconTabBar id="mainIconTabBar"
+                expandable="false"
+                stretchContentHeight="true"
+                class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter text="JSON Model" key="json">
+                        <Table id="booksTable"
+                            mode="MultiSelect"
+                            inset="false"
+                            width="auto"
+                            items="{/books}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="Books" level="H2"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <toolbar>
+                                <OverflowToolbar>
+                                    <Input id="titleFilter"
+                                        width="12rem"
+                                        placeholder="Filter by title"/>
+                                    <Select id="genreFilter"
+                                        width="12rem"
+                                        forceSelection="false"
+                                        items="{filter>/genres}">
+                                        <core:Item key="{filter>}" text="{filter>}"/>
+                                    </Select>
+                                    <Button id="filterButton"
+                                        text="Filter"
+                                        type="Emphasized"
+                                        press=".onFilterBooks"/>
+                                    <ToolbarSeparator/>
+                                    <Button id="addRecordButton"
+                                        text="Add Record"
+                                        type="Accept"
+                                        press=".onAddRecord"/>
+                                    <Button id="deleteRecordButton"
+                                        text="Delete Record"
+                                        type="Reject"
+                                        press=".onDeleteRecord"/>
+                                </OverflowToolbar>
+                            </toolbar>
+                            <columns>
+                                <Column width="6rem">
+                                    <Text text="ID"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Name"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Author"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Genre"/>
+                                </Column>
+                                <Column minScreenWidth="Desktop" demandPopin="true">
+                                    <Text text="Release Date"/>
+                                </Column>
+                                <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Available Quantity"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                        <Text text="{ID}"/>
+                                        <Text text="{Name}"/>
+                                        <Text text="{Author}"/>
+                                        <Text text="{Genre}"/>
+                                        <Text text="{
+                                            path: 'ReleaseDate',
+                                            type: 'sap.ui.model.type.Date',
+                                            formatOptions: {
+                                                style: 'medium'
+                                            }
+                                        }"/>
+                                        <ObjectNumber number="{AvailableQuantity}" emphasized="false"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+                    <IconTabFilter text="oData v2 Model" key="odataV2">
+                        <Table id="productsV2Table"
+                            inset="false"
+                            width="auto"
+                            growing="true"
+                            growingThreshold="20"
+                            items="{oDataV2Model>/Products}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="Products" level="H2"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="6rem">
+                                    <Text text="ID"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Name"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Description"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Release Date"/>
+                                </Column>
+                                <Column minScreenWidth="Desktop" demandPopin="true">
+                                    <Text text="Discontinued Date"/>
+                                </Column>
+                                <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Rating"/>
+                                </Column>
+                                <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Price"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                        <Text text="{ID}"/>
+                                        <Text text="{Name}"/>
+                                        <Text text="{Description}"/>
+                                        <Text text="{
+                                            path: 'ReleaseDate',
+                                            type: 'sap.ui.model.type.Date',
+                                            formatOptions: {
+                                                style: 'medium'
+                                            }
+                                        }"/>
+                                        <Text text="{
+                                            path: 'DiscontinuedDate',
+                                            type: 'sap.ui.model.type.Date',
+                                            formatOptions: {
+                                                style: 'medium'
+                                            }
+                                        }"/>
+                                        <ObjectNumber number="{Rating}" emphasized="false"/>
+                                        <ObjectNumber
+                                            number="{
+                                                path: 'Price',
+                                                type: 'sap.ui.model.type.Float',
+                                                formatOptions: {
+                                                    minFractionDigits: 2,
+                                                    maxFractionDigits: 2
+                                                }
+                                            }"
+                                            emphasized="false"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+                    <IconTabFilter text="oData v4 Model" key="odataV4">
+                        <Table id="productsV4Table"
+                            inset="false"
+                            width="auto"
+                            growing="true"
+                            growingThreshold="20"
+                            items="{oDataV4Model>/Products}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="Products" level="H2"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="6rem">
+                                    <Text text="ID"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Name"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Description"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Release Date"/>
+                                </Column>
+                                <Column minScreenWidth="Desktop" demandPopin="true">
+                                    <Text text="Discontinued Date"/>
+                                </Column>
+                                <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Rating"/>
+                                </Column>
+                                <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="Price"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                        <Text text="{ID}"/>
+                                        <Text text="{Name}"/>
+                                        <Text text="{Description}"/>
+                                        <Text text="{
+                                            path: 'ReleaseDate',
+                                            type: 'sap.ui.model.odata.type.DateTimeOffset',
+                                            formatOptions: {
+                                                style: 'medium'
+                                            }
+                                        }"/>
+                                        <Text text="{
+                                            path: 'DiscontinuedDate',
+                                            type: 'sap.ui.model.odata.type.DateTimeOffset',
+                                            formatOptions: {
+                                                style: 'medium'
+                                            }
+                                        }"/>
+                                        <ObjectNumber number="{Rating}" emphasized="false"/>
+                                        <ObjectNumber
+                                            number="{
+                                                path: 'Price',
+                                                type: 'sap.ui.model.type.Float',
+                                                formatOptions: {
+                                                    minFractionDigits: 2,
+                                                    maxFractionDigits: 2
+                                                }
+                                            }"
+                                            emphasized="false"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
     </Page>
 </mvc:View>
