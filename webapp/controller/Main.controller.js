@@ -1,13 +1,15 @@
 sap.ui.define([
     "axalimoduli/controller/Base.controller",
     "axalimoduli/model/models",
+    "axalimoduli/model/formatter",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/model/json/JSONModel"
-], (BaseController, models, Filter, FilterOperator, JSONModel) => {
+], (BaseController, models, formatter, Filter, FilterOperator, JSONModel) => {
     "use strict";
 
     return BaseController.extend("axalimoduli.controller.Main", {
+        formatter,
         onInit() {
             const oBooksModel = models.createBooksModel();
             this.getView().setModel(oBooksModel);
