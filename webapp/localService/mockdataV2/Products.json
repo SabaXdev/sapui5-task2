@@ -1,0 +1,47 @@
+[
+  {
+    "ID": 1,
+    "Name": "SAP UI5 Essentials",
+    "Description": "Structured guide for building Fiori apps with SAPUI5",
+    "ReleaseDate": "/Date(1704067200000)/",
+    "DiscontinuedDate": null,
+    "Rating": 5,
+    "Price": "49.99"
+  },
+  {
+    "ID": 2,
+    "Name": "OData in Practice",
+    "Description": "Hands-on exercises for OData V2 and V4 services",
+    "ReleaseDate": "/Date(1672531200000)/",
+    "DiscontinuedDate": null,
+    "Rating": 4,
+    "Price": "39.50"
+  },
+  {
+    "ID": 3,
+    "Name": "Mock Server Cookbook",
+    "Description": "Predictable local data for UI5 FE mock server testing",
+    "ReleaseDate": "/Date(1640995200000)/",
+    "DiscontinuedDate": "/Date(1735689600000)/",
+    "Rating": 4,
+    "Price": "29.00"
+  },
+  {
+    "ID": 4,
+    "Name": "Fiori Design Patterns",
+    "Description": "List reports, object pages, and flexible programming model basics",
+    "ReleaseDate": "/Date(1609459200000)/",
+    "DiscontinuedDate": null,
+    "Rating": 5,
+    "Price": "54.75"
+  },
+  {
+    "ID": 5,
+    "Name": "JSON Model Workshop",
+    "Description": "Client-side models, filtering, and table binding patterns",
+    "ReleaseDate": "/Date(1577836800000)/",
+    "DiscontinuedDate": null,
+    "Rating": 3,
+    "Price": "24.99"
+  }
+]

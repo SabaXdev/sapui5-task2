@@ -1,0 +1,18 @@
+[
+  {
+    "ID": 1,
+    "Name": "SAP Press",
+    "Address": {
+      "Street": "Learning Lane 1",
+      "City": "Walldorf",
+      "State": "BW",
+      "ZipCode": "69190",
+      "Country": "Germany"
+    },
+    "Location": {
+      "type": "Point",
+      "coordinates": [8.642, 49.294]
+    },
+    "Concurrency": 1
+  }
+]
