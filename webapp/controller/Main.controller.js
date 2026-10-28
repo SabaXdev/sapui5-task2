@@ -52,12 +52,40 @@ sap.ui.define([
 
         onDeleteRecord() {
             const oTable = this.byId("booksTable");
-            const aSelectedContexts = oTable.getSelectedContexts();
 
-            if (!aSelectedContexts.length) {
+            if (!oTable.getSelectedContexts().length) {
                 return;
             }
 
+            const openDialog = (oDialog) => {
+                oDialog.open();
+            };
+
+            if (this._oDeleteConfirmationDialog) {
+                openDialog(this._oDeleteConfirmationDialog);
+                return;
+            }
+
+            this.loadFragment({
+                name: "axalimoduli.view.DeleteConfirmationDialog"
+            }).then((oDialog) => {
+                this._oDeleteConfirmationDialog = oDialog;
+                openDialog(oDialog);
+            });
+        },
+
+        onConfirmDelete() {
+            this._deleteSelectedRecords();
+            this.byId("deleteConfirmationDialog").close();
+        },
+
+        onCancelDelete() {
+            this.byId("deleteConfirmationDialog").close();
+        },
+
+        _deleteSelectedRecords() {
+            const oTable = this.byId("booksTable");
+            const aSelectedContexts = oTable.getSelectedContexts();
             const oModel = this.getBooksModel();
             const aBooks = oModel.getProperty("/books");
             const aSelectedBooks = new Set(aSelectedContexts.map((oContext) => oContext.getObject()));
