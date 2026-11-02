@@ -18,10 +18,7 @@
                             <headerToolbar>
                                 <OverflowToolbar>
                                     <Title text="Books" level="H2"/>
-                                </OverflowToolbar>
-                            </headerToolbar>
-                            <toolbar>
-                                <OverflowToolbar>
+                                    <ToolbarSpacer/>
                                     <Input id="titleFilter"
                                         width="12rem"
                                         placeholder="Filter by title"/>
@@ -45,7 +42,7 @@
                                         type="Reject"
                                         press=".onDeleteRecord"/>
                                 </OverflowToolbar>
-                            </toolbar>
+                            </headerToolbar>
                             <columns>
                                 <Column width="6rem">
                                     <Text text="ID"/>
@@ -88,6 +85,7 @@
                     </IconTabFilter>
                     <IconTabFilter text="oData v2 Model" key="odataV2">
                         <Table id="productsV2Table"
+                            mode="MultiSelect"
                             inset="false"
                             width="auto"
                             growing="true"
@@ -96,6 +94,11 @@
                             <headerToolbar>
                                 <OverflowToolbar>
                                     <Title text="Products" level="H2"/>
+                                    <ToolbarSpacer/>
+                                    <Button id="deleteProductsV2Button"
+                                        text="Delete"
+                                        type="Reject"
+                                        press=".onDeleteProductsV2"/>
                                 </OverflowToolbar>
                             </headerToolbar>
                             <columns>
@@ -124,27 +127,25 @@
                             <items>
                                 <ColumnListItem vAlign="Middle">
                                     <cells>
-                                        <Text text="{ID}"/>
-                                        <Text text="{Name}"/>
-                                        <Text text="{Description}"/>
+                                        <Text text="{oDataV2Model>ID}"/>
+                                        <Text text="{oDataV2Model>Name}"/>
+                                        <Text text="{oDataV2Model>Description}"/>
                                         <Text text="{
-                                            path: 'ReleaseDate',
+                                            path: 'oDataV2Model>ReleaseDate',
                                             type: 'sap.ui.model.type.Date',
                                             formatOptions: {
-                                                style: 'medium'
+                                                style: 'medium',
+                                                UTC: true
                                             }
                                         }"/>
                                         <Text text="{
-                                            path: 'DiscontinuedDate',
-                                            type: 'sap.ui.model.type.Date',
-                                            formatOptions: {
-                                                style: 'medium'
-                                            }
+                                            path: 'oDataV2Model>DiscontinuedDate',
+                                            type: 'axalimoduli.model.OptionalDateType'
                                         }"/>
-                                        <ObjectNumber number="{Rating}" emphasized="false"/>
+                                        <ObjectNumber number="{oDataV2Model>Rating}" emphasized="false"/>
                                         <ObjectNumber
                                             number="{
-                                                path: 'Price',
+                                                path: 'oDataV2Model>Price',
                                                 type: 'sap.ui.model.type.Float',
                                                 formatOptions: {
                                                     minFractionDigits: 2,
@@ -195,27 +196,29 @@
                             <items>
                                 <ColumnListItem vAlign="Middle">
                                     <cells>
-                                        <Text text="{ID}"/>
-                                        <Text text="{Name}"/>
-                                        <Text text="{Description}"/>
+                                        <Text text="{oDataV4Model>ID}"/>
+                                        <Text text="{oDataV4Model>Name}"/>
+                                        <Text text="{oDataV4Model>Description}"/>
                                         <Text text="{
-                                            path: 'ReleaseDate',
+                                            path: 'oDataV4Model>ReleaseDate',
                                             type: 'sap.ui.model.odata.type.DateTimeOffset',
                                             formatOptions: {
-                                                style: 'medium'
+                                                style: 'medium',
+                                                UTC: true
                                             }
                                         }"/>
                                         <Text text="{
-                                            path: 'DiscontinuedDate',
+                                            path: 'oDataV4Model>DiscontinuedDate',
                                             type: 'sap.ui.model.odata.type.DateTimeOffset',
                                             formatOptions: {
-                                                style: 'medium'
+                                                style: 'medium',
+                                                UTC: true
                                             }
                                         }"/>
-                                        <ObjectNumber number="{Rating}" emphasized="false"/>
+                                        <ObjectNumber number="{oDataV4Model>Rating}" emphasized="false"/>
                                         <ObjectNumber
                                             number="{
-                                                path: 'Price',
+                                                path: 'oDataV4Model>Price',
                                                 type: 'sap.ui.model.type.Float',
                                                 formatOptions: {
                                                     minFractionDigits: 2,

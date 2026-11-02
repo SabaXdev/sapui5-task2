@@ -3,7 +3,11 @@
   "sap.app": {
     "id": "axalimoduli",
     "type": "application",
-    "i18n": "i18n/i18n.properties",
+    "i18n": {
+      "bundleUrl": "i18n/i18n.properties",
+      "supportedLocales": [""],
+      "fallbackLocale": ""
+    },
     "applicationVersion": {
       "version": "0.0.1"
     },
@@ -67,19 +71,24 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "axalimoduli.i18n.i18n"
+          "bundleName": "axalimoduli.i18n.i18n",
+          "supportedLocales": [""],
+          "fallbackLocale": ""
         }
       },
       "oDataV2Model": {
         "dataSource": "oDataV2Service",
+        "type": "sap.ui.model.odata.v2.ODataModel",
         "preload": true,
         "settings": {
           "defaultBindingMode": "OneWay",
-          "defaultCountMode": "Request"
+          "defaultCountMode": "Request",
+          "useBatch": true
         }
       },
       "oDataV4Model": {
         "dataSource": "oDataV4Service",
+        "type": "sap.ui.model.odata.v4.ODataModel",
         "preload": true,
         "settings": {
           "synchronizationMode": "None",
