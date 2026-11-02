@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices>
+    <Schema Namespace="ODataDemo" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+        <Property Name="Name" Type="Edm.String"/>
+        <Property Name="Description" Type="Edm.String"/>
+        <Property Name="ReleaseDate" Type="Edm.DateTimeOffset" Nullable="false"/>
+        <Property Name="DiscontinuedDate" Type="Edm.DateTimeOffset"/>
+        <Property Name="Rating" Type="Edm.Int16" Nullable="false"/>
+        <Property Name="Price" Type="Edm.Double" Nullable="false"/>
+      </EntityType>
+      <EntityContainer Name="DemoService">
+        <EntitySet Name="Products" EntityType="ODataDemo.Product"/>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
