@@ -1,0 +1,14 @@
+[
+  {
+    "ID": 1,
+    "Name": "Contoso Learning",
+    "Address": {
+      "Street": "1 Main St",
+      "City": "Seattle",
+      "State": "WA",
+      "ZipCode": "98101",
+      "Country": "USA"
+    },
+    "Concurrency": 1
+  }
+]
