@@ -1,0 +1,10 @@
+[
+  {
+    "ProductID": 1,
+    "Details": "Includes mock server and OData binding chapters."
+  },
+  {
+    "ProductID": 3,
+    "Details": "Discontinued edition — replaced by Exercise 3 JavaScript logic."
+  }
+]

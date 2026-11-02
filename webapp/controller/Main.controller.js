@@ -1,10 +1,12 @@
 sap.ui.define([
     "axalimoduli/controller/Base.controller",
     "axalimoduli/model/models",
+    "sap/m/MessageBox",
+    "sap/m/MessageToast",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/model/json/JSONModel"
-], (BaseController, models, Filter, FilterOperator, JSONModel) => {
+], (BaseController, models, MessageBox, MessageToast, Filter, FilterOperator, JSONModel) => {
     "use strict";
 
     return BaseController.extend("axalimoduli.controller.Main", {
@@ -65,6 +67,39 @@ sap.ui.define([
 
             oModel.setProperty("/books", aRemainingBooks);
             oTable.removeSelections(true);
+        },
+
+        onDeleteProductsV2() {
+            const oTable = this.byId("productsV2Table");
+            const aSelectedContexts = oTable.getSelectedContexts();
+            const oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+
+            if (!aSelectedContexts.length) {
+                return;
+            }
+
+            const oModel = this.getView().getModel("oDataV2Model");
+            const sDeleteGroupId = "deleteProductsGroup";
+            const iCount = aSelectedContexts.length;
+
+            oModel.setDeferredGroups([sDeleteGroupId]);
+
+            aSelectedContexts.forEach((oContext) => {
+                oModel.remove(oContext.getPath(), { groupId: sDeleteGroupId });
+            });
+
+            oModel.submitChanges({
+                groupId: sDeleteGroupId,
+                success: () => {
+                    MessageToast.show(oResourceBundle.getText("deleteProductsSuccess", [iCount]));
+                    oTable.removeSelections(true);
+                },
+                error: (oError) => {
+                    oModel.resetChanges([sDeleteGroupId]);
+                    const sMessage = oError?.message || oResourceBundle.getText("deleteProductsFailed");
+                    MessageBox.error(sMessage);
+                }
+            });
         }
     });
 });
