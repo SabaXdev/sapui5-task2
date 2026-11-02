@@ -14,6 +14,17 @@ framework:
     - name: themelib_sap_horizon
 server:
   customMiddleware:
+    - name: sap-fe-mockserver
+      mountPath: /
+      afterMiddleware: compression
+      configuration:
+        services:
+          - urlPath: /V2/OData/OData.svc
+            metadataPath: ./webapp/localService/metadataV2.xml
+            mockdataPath: ./webapp/localService/mockdataV2
+          - urlPath: /V4/OData/OData.svc
+            metadataPath: ./webapp/localService/metadataV4.xml
+            mockdataPath: ./webapp/localService/mockdataV4
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
