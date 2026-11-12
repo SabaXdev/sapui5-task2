@@ -1,0 +1,11 @@
+<mvc:View
+    controllerName="axalimoduli.controller.Product"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page
+        id="productPage"
+        title="{i18n>productPageTitle}"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+    </Page>
+</mvc:View>
