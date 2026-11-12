@@ -1,0 +1,55 @@
+[
+  {
+    "ID": 1,
+    "Name": "SAP Press",
+    "Address": {
+      "Street": "Learning Lane 1",
+      "City": "Walldorf",
+      "State": "BW",
+      "ZipCode": "69190",
+      "Country": "Germany"
+    },
+    "Concurrency": 1,
+    "Products": [
+      {
+        "__metadata": {
+          "uri": "Products(1)"
+        }
+      },
+      {
+        "__metadata": {
+          "uri": "Products(2)"
+        }
+      },
+      {
+        "__metadata": {
+          "uri": "Products(3)"
+        }
+      }
+    ]
+  },
+  {
+    "ID": 2,
+    "Name": "Open OData Publishers",
+    "Address": {
+      "Street": "Service Road 42",
+      "City": "Redmond",
+      "State": "WA",
+      "ZipCode": "98052",
+      "Country": "USA"
+    },
+    "Concurrency": 1,
+    "Products": [
+      {
+        "__metadata": {
+          "uri": "Products(4)"
+        }
+      },
+      {
+        "__metadata": {
+          "uri": "Products(5)"
+        }
+      }
+    ]
+  }
+]

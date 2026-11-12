@@ -1,0 +1,144 @@
+<mvc:View
+    controllerName="axalimoduli.controller.Product"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:form="sap.ui.layout.form">
+    <Page
+        id="productPage"
+        title="{i18n>productPageTitle}"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+        enableScrolling="false">
+        <content>
+            <uxap:ObjectPageLayout
+                id="productObjectPage"
+                upperCaseAnchorBar="false"
+                enableLazyLoading="true">
+                <uxap:headerTitle>
+                    <uxap:ObjectPageHeader
+                        id="productHeader"
+                        objectTitle="{Name}"/>
+                </uxap:headerTitle>
+                <uxap:sections>
+                    <uxap:ObjectPageSection
+                        id="productInfoSection"
+                        title="{i18n>productSectionTitle}">
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection id="productInfoSubSection">
+                                <uxap:blocks>
+                                    <form:SimpleForm
+                                        id="productInfoForm"
+                                        editable="false"
+                                        layout="ResponsiveGridLayout"
+                                        labelSpanXL="4"
+                                        labelSpanL="4"
+                                        labelSpanM="4"
+                                        labelSpanS="12"
+                                        adjustLabelSpan="false"
+                                        emptySpanXL="0"
+                                        emptySpanL="0"
+                                        emptySpanM="0"
+                                        emptySpanS="0"
+                                        columnsXL="1"
+                                        columnsL="1"
+                                        columnsM="1"
+                                        singleContainerFullSize="false">
+                                        <form:content>
+                                            <Label text="{i18n>addProductFieldId}" labelFor="productFieldId"/>
+                                            <Text id="productFieldId" text="{ID}"/>
+                                            <Label text="{i18n>addProductFieldName}" labelFor="productFieldName"/>
+                                            <Text id="productFieldName" text="{Name}"/>
+                                            <Label text="{i18n>addProductFieldDescription}" labelFor="productFieldDescription"/>
+                                            <Text id="productFieldDescription" text="{Description}"/>
+                                            <Label text="{i18n>addProductFieldReleaseDate}" labelFor="productFieldReleaseDate"/>
+                                            <Text
+                                                id="productFieldReleaseDate"
+                                                text="{
+                                                    path: 'ReleaseDate',
+                                                    type: 'sap.ui.model.type.Date',
+                                                    formatOptions: {
+                                                        style: 'medium'
+                                                    }
+                                                }"/>
+                                            <Label text="{i18n>addProductFieldDiscontinuedDate}" labelFor="productFieldDiscontinuedDate"/>
+                                            <Text
+                                                id="productFieldDiscontinuedDate"
+                                                text="{
+                                                    path: 'DiscontinuedDate',
+                                                    type: 'sap.ui.model.type.Date',
+                                                    formatOptions: {
+                                                        style: 'medium'
+                                                    }
+                                                }"/>
+                                            <Label text="{i18n>addProductFieldRating}" labelFor="productFieldRating"/>
+                                            <ObjectNumber id="productFieldRating" number="{Rating}" emphasized="false"/>
+                                            <Label text="{i18n>addProductFieldPrice}" labelFor="productFieldPrice"/>
+                                            <ObjectNumber
+                                                id="productFieldPrice"
+                                                number="{
+                                                    path: 'Price',
+                                                    type: 'sap.ui.model.type.Float',
+                                                    formatOptions: {
+                                                        minFractionDigits: 2,
+                                                        maxFractionDigits: 2
+                                                    }
+                                                }"
+                                                emphasized="false"/>
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </uxap:blocks>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                    </uxap:ObjectPageSection>
+                    <uxap:ObjectPageSection
+                        id="supplierSection"
+                        title="{i18n>supplierSectionTitle}">
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection id="supplierSubSection">
+                                <uxap:blocks>
+                                    <form:SimpleForm
+                                        id="supplierForm"
+                                        editable="false"
+                                        layout="ResponsiveGridLayout"
+                                        labelSpanXL="4"
+                                        labelSpanL="4"
+                                        labelSpanM="4"
+                                        labelSpanS="12"
+                                        adjustLabelSpan="false"
+                                        emptySpanXL="0"
+                                        emptySpanL="0"
+                                        emptySpanM="0"
+                                        emptySpanS="0"
+                                        columnsXL="1"
+                                        columnsL="1"
+                                        columnsM="1"
+                                        singleContainerFullSize="false">
+                                        <form:content>
+                                            <Label text="{i18n>addProductFieldId}" labelFor="supplierFieldId"/>
+                                            <Text id="supplierFieldId" text="{Supplier/ID}"/>
+                                            <Label text="{i18n>addProductFieldName}" labelFor="supplierFieldName"/>
+                                            <Text id="supplierFieldName" text="{Supplier/Name}"/>
+                                            <Label text="{i18n>supplierFieldStreet}" labelFor="supplierFieldStreet"/>
+                                            <Text id="supplierFieldStreet" text="{Supplier/Address/Street}"/>
+                                            <Label text="{i18n>supplierFieldCity}" labelFor="supplierFieldCity"/>
+                                            <Text id="supplierFieldCity" text="{Supplier/Address/City}"/>
+                                            <Label text="{i18n>supplierFieldState}" labelFor="supplierFieldState"/>
+                                            <Text id="supplierFieldState" text="{Supplier/Address/State}"/>
+                                            <Label text="{i18n>supplierFieldZipCode}" labelFor="supplierFieldZipCode"/>
+                                            <Text id="supplierFieldZipCode" text="{Supplier/Address/ZipCode}"/>
+                                            <Label text="{i18n>supplierFieldCountry}" labelFor="supplierFieldCountry"/>
+                                            <Text id="supplierFieldCountry" text="{Supplier/Address/Country}"/>
+                                            <Label text="{i18n>supplierFieldConcurrency}" labelFor="supplierFieldConcurrency"/>
+                                            <Text id="supplierFieldConcurrency" text="{Supplier/Concurrency}"/>
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </uxap:blocks>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                    </uxap:ObjectPageSection>
+                </uxap:sections>
+            </uxap:ObjectPageLayout>
+        </content>
+    </Page>
+</mvc:View>

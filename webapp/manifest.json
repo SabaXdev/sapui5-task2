@@ -10,6 +10,22 @@
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
+    "dataSources": {
+      "oDataV2Service": {
+        "uri": "/V2/OData/OData.svc/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      },
+      "oDataV4Service": {
+        "uri": "/V4/TripPinServiceRW/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    },
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.33.0",
@@ -38,7 +54,9 @@
       "minUI5Version": "1.153.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.uxap": {}
       }
     },
     "contentDensities": {
@@ -50,6 +68,25 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "axalimoduli.i18n.i18n"
+        }
+      },
+      "oDataV2Model": {
+        "dataSource": "oDataV2Service",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "OneWay",
+          "defaultCountMode": "Inline",
+          "useBatch": false
+        }
+      },
+      "oDataV4Model": {
+        "dataSource": "oDataV4Service",
+        "preload": true,
+        "settings": {
+          "groupId": "$direct",
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true
         }
       }
     },
