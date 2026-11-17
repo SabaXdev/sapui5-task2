@@ -1,0 +1,47 @@
+[
+  {
+    "ID": 1,
+    "Name": "SAP UI5 Essentials",
+    "Description": "Hands-on guide to building SAPUI5 applications.",
+    "ReleaseDate": "2024-01-01T00:00:00Z",
+    "DiscontinuedDate": null,
+    "Rating": 5,
+    "Price": 49.99
+  },
+  {
+    "ID": 2,
+    "Name": "OData in Practice",
+    "Description": "Learn OData v2 and v4 with mock servers.",
+    "ReleaseDate": "2023-01-01T00:00:00Z",
+    "DiscontinuedDate": null,
+    "Rating": 4,
+    "Price": 39.5
+  },
+  {
+    "ID": 3,
+    "Name": "Mock Server Cookbook",
+    "Description": "Patterns for local OData development.",
+    "ReleaseDate": "2022-01-01T00:00:00Z",
+    "DiscontinuedDate": "2025-01-01T00:00:00Z",
+    "Rating": 5,
+    "Price": 29
+  },
+  {
+    "ID": 4,
+    "Name": "Fiori Design Patterns",
+    "Description": "UX guidelines for enterprise apps.",
+    "ReleaseDate": "2021-01-01T00:00:00Z",
+    "DiscontinuedDate": null,
+    "Rating": 4,
+    "Price": 54.75
+  },
+  {
+    "ID": 5,
+    "Name": "JSON Model Workshop",
+    "Description": "Client-side data binding fundamentals.",
+    "ReleaseDate": "2020-01-01T00:00:00Z",
+    "DiscontinuedDate": null,
+    "Rating": 3,
+    "Price": 24.99
+  }
+]
