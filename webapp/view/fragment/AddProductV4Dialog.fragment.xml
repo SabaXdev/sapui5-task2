@@ -1,0 +1,68 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="addProductV4Dialog"
+        title="{i18n>addProductDialogTitle}"
+        contentWidth="26rem"
+        draggable="true"
+        resizable="true">
+        <content>
+            <VBox id="addProductV4FormVBox" class="sapUiSmallMargin">
+                <Label text="{i18n>addProductFieldId}" required="true" labelFor="addProductV4Id"/>
+                <Input
+                    id="addProductV4Id"
+                    value="{addProductV4>/ID}"
+                    type="Number"
+                    liveChange=".onAddProductV4FieldChange"/>
+                <Label text="{i18n>addProductFieldName}" required="true" labelFor="addProductV4Name"/>
+                <Input
+                    id="addProductV4Name"
+                    value="{addProductV4>/Name}"
+                    liveChange=".onAddProductV4FieldChange"/>
+                <Label text="{i18n>addProductFieldDescription}" required="true" labelFor="addProductV4Description"/>
+                <Input
+                    id="addProductV4Description"
+                    value="{addProductV4>/Description}"
+                    liveChange=".onAddProductV4FieldChange"/>
+                <Label text="{i18n>addProductFieldReleaseDate}" required="true" labelFor="addProductV4ReleaseDate"/>
+                <DatePicker
+                    id="addProductV4ReleaseDate"
+                    value="{addProductV4>/ReleaseDate}"
+                    displayFormat="medium"
+                    valueFormat="yyyy-MM-dd"
+                    change=".onAddProductV4FieldChange"/>
+                <Label text="{i18n>addProductFieldDiscontinuedDate}" required="true" labelFor="addProductV4DiscontinuedDate"/>
+                <DatePicker
+                    id="addProductV4DiscontinuedDate"
+                    value="{addProductV4>/DiscontinuedDate}"
+                    displayFormat="medium"
+                    valueFormat="yyyy-MM-dd"
+                    change=".onAddProductV4FieldChange"/>
+                <Label text="{i18n>addProductFieldRating}" required="true" labelFor="addProductV4Rating"/>
+                <Input
+                    id="addProductV4Rating"
+                    value="{addProductV4>/Rating}"
+                    type="Number"
+                    liveChange=".onAddProductV4FieldChange"/>
+                <Label text="{i18n>addProductFieldPrice}" required="true" labelFor="addProductV4Price"/>
+                <Input
+                    id="addProductV4Price"
+                    value="{addProductV4>/Price}"
+                    type="Number"
+                    liveChange=".onAddProductV4FieldChange"/>
+            </VBox>
+        </content>
+        <beginButton>
+            <Button
+                text="{i18n>addProductSaveButton}"
+                type="Emphasized"
+                press=".onSaveProductV4"/>
+        </beginButton>
+        <endButton>
+            <Button
+                text="{i18n>addProductCancelButton}"
+                press=".onCancelAddProductV4"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
